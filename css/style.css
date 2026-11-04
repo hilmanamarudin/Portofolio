@@ -1,0 +1,129 @@
+/* ===== WARNA: ubah di sini untuk mengganti warna website ===== */
+:root{
+  --bg:#ffffff; --surface:#f3f6fb; --text:#0f1b33; --muted:#5b6781;
+  --navy:#0a1f44; --accent:#2f6fed; --border:#dbe3f0; --radius:14px;
+}
+[data-theme="dark"]{
+  --bg:#07122a; --surface:#0d1d3f; --text:#eaf0fc; --muted:#9fb0d0;
+  --navy:#eaf0fc; --accent:#6c9bff; --border:#1d305c;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{font-family:Inter,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;transition:background .3s,color .3s}
+h1,h2,h3,.logo{font-family:Sora,sans-serif;color:var(--navy);line-height:1.2}
+h2{font-size:1.8rem;margin-bottom:1.5rem}
+a{color:inherit;text-decoration:none}
+ul{list-style:none;padding:0}
+.wrap{max-width:1050px;margin:0 auto;padding:4.5rem 1.25rem}
+.muted{color:var(--muted)} .lead{max-width:70ch}
+
+/* NAVIGASI */
+.nav{position:sticky;top:0;z-index:10;display:flex;align-items:center;gap:1rem;padding:.8rem 1.25rem;background:var(--bg);border-bottom:1px solid var(--border)}
+.logo{font-weight:800;margin-right:auto}
+#menu{display:flex;gap:1.1rem;font-size:.92rem}
+#menu a{color:var(--muted)} #menu a:hover{color:var(--accent)}
+.nav button{background:none;border:1px solid var(--border);color:var(--text);border-radius:10px;padding:.4rem;cursor:pointer;display:flex}
+#menuBtn{display:none}
+
+/* HERO */
+.hero{display:grid;grid-template-columns:1.3fr 1fr;gap:2.5rem;align-items:center;min-height:80vh}
+.hero h1{font-size:clamp(2.2rem,6vw,3.6rem);margin:.2rem 0 .8rem}
+.typing{font-size:1.2rem;font-weight:500;margin-bottom:.6rem}
+#typed{color:var(--accent);font-weight:600}
+.cursor{animation:blink 1s steps(2) infinite}
+@keyframes blink{50%{opacity:0}}
+.btns{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.5rem}
+.btn{display:inline-flex;gap:.4rem;align-items:center;padding:.7rem 1.3rem;border-radius:10px;border:1px solid var(--border);cursor:pointer;background:var(--surface);color:var(--text);font:inherit;font-weight:600;transition:transform .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.photo{position:relative;justify-self:center;width:min(300px,70vw);aspect-ratio:1;border-radius:50% 50% 50% 12%;overflow:hidden;background:linear-gradient(135deg,var(--navy),var(--accent));display:grid;place-items:center;box-shadow:0 0 0 8px var(--surface)}
+.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.photo span{font:700 4rem Sora,sans-serif;color:#fff}
+
+/* KARTU & TIMELINE */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.2rem}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.2rem;overflow:hidden}
+.card h3{font-size:1.05rem;margin-bottom:.4rem}
+.thumb{position:relative;height:140px;margin:-1.2rem -1.2rem 1rem;background:linear-gradient(135deg,var(--navy),var(--accent));display:grid;place-items:center;color:#fff}
+.thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem;margin:.6rem 0}
+.tag{font-size:.8rem;padding:.15rem .65rem;border-radius:99px;border:1px solid var(--border);background:var(--bg)}
+.timeline{border-left:2px solid var(--border);padding-left:1.4rem;display:grid;gap:1.4rem}
+.item{position:relative}
+.item::before{content:"";position:absolute;left:-1.85rem;top:.55rem;width:11px;height:11px;border-radius:50%;background:var(--accent)}
+.item ul{list-style:disc;padding-left:1.2rem;color:var(--muted)}
+
+/* KONTAK */
+.contact{display:grid;grid-template-columns:1fr 1.2fr;gap:2rem}
+.contact li a{display:flex;gap:.7rem;align-items:center;padding:.6rem 0}
+.contact li a:hover{color:var(--accent)}
+form{display:grid;gap:1rem}
+label{display:grid;gap:.3rem;font-weight:500;font-size:.92rem}
+input,textarea{padding:.7rem;border-radius:10px;border:1px solid var(--border);background:var(--surface);color:var(--text);font:inherit}
+input:focus,textarea:focus,.btn:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+small{color:#d33;min-height:1em}
+
+/* MODAL */
+.modal{position:fixed;inset:0;background:rgba(5,12,30,.6);display:grid;place-items:center;padding:1rem;z-index:20}
+.modal[hidden]{display:none}
+.box{background:var(--bg);border-radius:var(--radius);padding:1.6rem;max-width:520px;width:100%;animation:pop .25s}
+@keyframes pop{from{transform:scale(.95);opacity:0}}
+
+/* ANIMASI MUNCUL SAAT SCROLL */
+.reveal{opacity:0;transform:translateY(16px);transition:.6s}
+.reveal.show{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+
+/* RESPONSIF (tablet & HP) */
+@media(max-width:820px){
+  .hero,.contact{grid-template-columns:1fr}
+  .photo{order:-1}
+  #menuBtn{display:flex}
+  #menu{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:var(--bg);padding:1rem 1.25rem;border-bottom:1px solid var(--border)}
+  #menu.open{display:flex}
+}
+
+/* ===== LATAR BELAKANG BARU (supaya tidak polos) ===== */
+:root{
+  --glow1:rgba(47,111,237,.16); --glow2:rgba(47,111,237,.22);
+  --dot:rgba(10,31,68,.10); --band:#eef3fb;
+}
+[data-theme="dark"]{
+  --glow1:rgba(108,155,255,.16); --glow2:rgba(108,155,255,.20);
+  --dot:rgba(234,240,252,.07); --band:#0a1936;
+}
+/* Pola titik + cahaya biru lembut di seluruh halaman */
+body{
+  background-color:var(--bg);
+  background-image:
+    radial-gradient(circle at 12% 0%, var(--glow1), transparent 42%),
+    radial-gradient(circle at 95% 35%, var(--glow2), transparent 38%),
+    radial-gradient(var(--dot) 1px, transparent 1px);
+  background-size:auto, auto, 24px 24px;
+  background-attachment:fixed;
+}
+/* Navigasi semi-transparan */
+.nav{background:color-mix(in srgb,var(--bg) 80%,transparent);backdrop-filter:blur(10px)}
+/* Cahaya bergerak pelan di belakang foto */
+.hero{position:relative}
+.hero::before{content:"";position:absolute;right:-40px;top:8%;width:440px;height:440px;max-width:80vw;
+  background:radial-gradient(circle,var(--glow2),transparent 65%);filter:blur(24px);z-index:-1;
+  animation:float 9s ease-in-out infinite alternate}
+@keyframes float{to{transform:translate(-30px,24px)}}
+.photo{box-shadow:0 0 0 8px var(--surface),0 24px 60px var(--glow2)}
+/* Pita warna selang-seling antar bagian (selebar layar penuh) */
+#about,#skills,#projects,#contact{background:var(--band);box-shadow:0 0 0 100vmax var(--band);clip-path:inset(0 -100vmax)}
+/* Kartu lebih terangkat */
+.card{box-shadow:0 6px 20px rgba(10,31,68,.06);transition:transform .25s,box-shadow .25s}
+.card:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(10,31,68,.12)}
+@media(max-width:820px){body{background-attachment:scroll}}
+
+/* ===== LATAR BELAKANG ANIMASI ===== */
+#bg{position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
+.nav{background:color-mix(in srgb,var(--bg) 80%,transparent);backdrop-filter:blur(10px)}
+.hero::before{content:"";position:absolute;inset:10% -10% auto auto;width:420px;height:420px;z-index:-1;border-radius:50%;
+  background:radial-gradient(circle,color-mix(in srgb,var(--accent) 28%,transparent),transparent 70%)}
+.hero{position:relative}
+.card{background:color-mix(in srgb,var(--surface) 88%,transparent);backdrop-filter:blur(6px)}
+/* Judul hero diketik seperti kode */
+.hero h1::after{content:" _";color:var(--accent);animation:blink 1s steps(2) infinite}

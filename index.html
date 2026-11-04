@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hilman Amarudin | Portfolio</title>
+  <!-- Google Fonts: Sora (judul) + Inter (isi) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  <!-- LATAR BELAKANG ANIMASI (diatur di js/background.js) -->
+  <canvas id="bg" aria-hidden="true"></canvas>
+  <!-- NAVIGASI -->
+  <header class="nav">
+    <a href="#home" class="logo" id="logo"></a>
+    <nav id="menu">
+      <a href="#about">Tentang</a><a href="#education">Pendidikan</a><a href="#skills">Skills</a>
+      <a href="#experience">Pengalaman</a><a href="#projects">Proyek</a><a href="#certificates">Sertifikat</a><a href="#contact">Kontak</a>
+    </nav>
+    <button id="themeBtn" aria-label="Ganti tema"><i data-lucide="moon"></i></button>
+    <button id="menuBtn" aria-label="Buka menu"><i data-lucide="menu"></i></button>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section id="home" class="hero wrap">
+      <div>
+        <p class="muted" id="heroGreeting">Halo, saya</p>
+        <h1 id="heroName"></h1>
+        <p class="typing">Saya seorang <span id="typed"></span><span class="cursor">|</span></p>
+        <p class="muted" id="heroDesc"></p>
+        <div class="btns">
+          <a href="#projects" class="btn primary">Lihat Portfolio</a>
+          <a id="cvBtn" class="btn" download><i data-lucide="download"></i> Download CV</a>
+        </div>
+      </div>
+      <div class="photo"><img id="photo" alt="Foto Hilman Amarudin"><span id="initials"></span></div>
+    </section>
+
+    <section id="about" class="wrap reveal"><h2>Tentang Saya</h2><p id="aboutText" class="lead"></p></section>
+    <section id="education" class="wrap reveal"><h2>Pendidikan</h2><div id="eduList" class="timeline"></div></section>
+    <section id="skills" class="wrap reveal"><h2>Skills</h2><div id="skillList" class="grid"></div></section>
+    <section id="experience" class="wrap reveal"><h2>Pengalaman</h2><div id="expList" class="timeline"></div></section>
+    <section id="projects" class="wrap reveal"><h2>Proyek</h2><div id="projList" class="grid"></div></section>
+    <section id="certificates" class="wrap reveal"><h2>Sertifikat</h2><div id="certList" class="grid"></div></section>
+
+    <!-- KONTAK -->
+    <section id="contact" class="wrap reveal">
+      <h2>Kontak</h2>
+      <div class="contact">
+        <ul id="contactList"></ul>
+        <form id="form" novalidate>
+          <label>Nama <input name="nama" type="text"><small></small></label>
+          <label>Email <input name="email" type="email"><small></small></label>
+          <label>Pesan <textarea name="pesan" rows="4"></textarea><small></small></label>
+          <button class="btn primary" type="submit">Kirim pesan</button>
+          <p id="formInfo" class="muted"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap muted" id="footer"></footer>
+
+  <!-- MODAL DETAIL PROYEK -->
+  <div id="modal" class="modal" hidden><div class="box" id="modalBox"></div></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/background.js"></script>
+</body>
+</html>
